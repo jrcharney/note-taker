@@ -69,3 +69,46 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 - [ ] Submission
   - [ ] URL with the functional, deployed application
   - [ ] URL of the Github Repo with README describing the project
+
+## Plan of attack
+
+- We need to number our notes statically.
+- A `Notebook` is an aggregation of `Note`s
+- Wishlist: `Binder` could be an aggregation of `Notebook`s. Maybe if we had time. It would require `Notebook`s to also be numbered...and maybe have other features like a subject and/or description.
+
+```mermaid
+classDiagram
+
+class Notebook {
+    -Notes[] notes
+    +constructor(...notes)
+    +fromJSON(object[])
+    +setNotes(...notes)
+    +addNotes(...notes)
+    +getNotes() Note[]
+    +listNotes() object[]
+    +updateNote(id,note)
+    +appendNote(id,note)
+    +deleteNote(id)
+    +deleteNotes(...ids)
+    +toJSON() object[]
+}
+
+class Note {
+    -number note_id$
+    -number id
+    -string title
+    -content content
+    +constructor(title,note)
+    +fromJSON(object[])
+    +getId() number
+    +setTitle(title)
+    +getTitle() string
+    +setContent(content)
+    +addContent(content)
+    +getContent() string
+    +toJSON() object[]
+}
+
+Notebook "1" o-- "1..*" Note
+```
