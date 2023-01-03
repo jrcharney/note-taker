@@ -75,27 +75,32 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 - We need to number our notes statically.
 - A `Notebook` is an aggregation of `Note`s
 - Wishlist: `Binder` could be an aggregation of `Notebook`s. Maybe if we had time. It would require `Notebook`s to also be numbered...and maybe have other features like a subject and/or description.
+- Refresh my knowledge on routes. (It might have a different diagram)
+- Wishlist: Add timestamps to notes. Typically when it was last updated. Although we could also list when it was created.
 
 ```mermaid
 classDiagram
 
 class Notebook {
-    -Notes[] notes
+    -Note[] notes
     +constructor(...notes)
     +fromJSON(object[])
+    +countNotes() number
     +setNotes(...notes)
     +addNotes(...notes)
+    +getNote(id) Note
     +getNotes() Note[]
     +listNotes() object[]
-    +updateNote(id,note)
-    +appendNote(id,note)
+    +updateNoteTitle(id,title)
+    +updateNoteContent(id,content)
+    +appendNoteContent(id,content)
     +deleteNote(id)
     +deleteNotes(...ids)
     +toJSON() object[]
 }
 
 class Note {
-    -number note_id$
+    -number counter$
     -number id
     -string title
     -content content
