@@ -34,4 +34,10 @@ describe("Note", () => {
             expect(note.toJSON()).toStrictEqual(record);
         })
     });
+
+    describe("toString",() => {
+        it("should return the note as a stringified JSON",() => {
+            expect(note.toString()).toStrictEqual(JSON.stringify(record,null,"\t"));
+        })
+    });
 });

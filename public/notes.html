@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- NOTE: It's time we started using meta tags again! -->
-    <meta name="author" content="Jason Charney">
-    <meta name="keywords" content="Notes, Express.js">
-    <meta name="description" content="A note taking app written with Express.js">
     <title>Note Taker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,15 +13,24 @@
     <script src="/assets/js/index.js" defer></script>
 </head>
 <body>
-    <!-- TODO: Github ribbon! -->
     <nav class="navbar bg-info">
-        <a class="navbar-brand text-light p-3" href="/">Note Taker</a>
+        <a class="navbar-brand text-light p-3" href="/">Note Taker </a>
+        <div class="icons">
+            <i class="fas fa-save text-light save-note" title="Save Note"></i>
+            <i class="fas fa-pen text-light new-note" title="New Note"></i><!-- replaced fa-plus with fa-pen. It looks better. -->
+        </div>
     </nav>
-    <div class="container">
-        <div style="margin-top: 80px;" class="text-center p-5 mb-4 bg-light">
-            <h1 class="display-4">Note Taker <span role="img" aria-label="Memo">📝</span></h1>
-            <h4 class="mt-4">Take notes with Express</h4>
-            <a class="btn btn-primary btn-lg mt-4" href="/notes" role="button">Get Started</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 list-container">
+                <div class="card">
+                    <ul class="list-group"></ul>
+                </div>
+            </div>
+            <div class="col-8">
+                <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
+                <textarea class="note-textarea" placeholder="Note Text"></textarea>
+            </div>
         </div>
     </div>
 </body>

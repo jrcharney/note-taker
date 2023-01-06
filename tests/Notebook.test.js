@@ -73,5 +73,10 @@ describe("NoteBook",() => {
         it("should return the notes as a JSON object",() => {
             expect(collection.toJSON()).toStrictEqual(records);
         })
+    });
+    describe("toString",() => {
+        it("should return the notes as a string",() => {
+            expect(collection.toString()).toStrictEqual(JSON.stringify(records,null,"\t"));
+        })
     })
 });
